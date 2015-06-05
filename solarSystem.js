@@ -28,11 +28,6 @@
 	}
 
 	function resize(){
-		/*
-		var w = window.innerWidth/canvas.width;
-		var h = window.innerHeight/canvas.height;
-		var scale = Math.min(h,w);
-		*/
 		canvas.style.width=window.innerWidth+"px";//(canvas.width*scale)+'px';
 		canvas.style.height=window.innerHeight+"px";//(canvas.height*scale)+'px';
     }
