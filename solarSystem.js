@@ -10,7 +10,7 @@
         mercurio;
     //creacion de los planetas
     function creacion() {
-        mercurio = new Planeta(canvas.width / 2, canvas.height / 3, 4, 9, '#82793D', 60);
+        mercurio = new Planeta(canvas.width / 2, canvas.height / 3, 4, 9, '#82793D', 25);
         //Creamos el sol
         sol = new Sun(canvas.width / 2, canvas.height / 2, 25, '#EBEB0C');
     }
@@ -70,6 +70,7 @@
         this.c = (c === null) ? '#fff' : c;
         //radio de la orbita
         this.radioOrbit = (radioOrbit === null) ? 0 : radioOrbit;
+        this.radian = 0;
         this.inclinacion = 0;
         //colisión contra objeto redondo
         this.distance = function(obj) {
@@ -83,10 +84,10 @@
         this.orbit = function(obj) {
             if (obj !== null) {
                 this.inclinacion += this.v;
-                this.radioOrbit = (this.inclinacion / 180) * Math.PI;
+                this.radian = (this.inclinacion / 180) * Math.PI;
 
-                this.y = (Math.cos(this.radioOrbit)*obj.r)+ obj.y;
-                this.x = (-Math.sin(this.radioOrbit)*obj.r) + obj.x;
+                this.y = (Math.cos(this.radian)*(obj.r + this.radioOrbit))+ obj.y;
+                this.x = (-Math.sin(this.radian)*(obj.r + this.radioOrbit))+ obj.x;
             }
         };
     }
